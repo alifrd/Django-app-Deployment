@@ -1,0 +1,13 @@
+[Unit]
+Description=example django project
+Requires=network.target
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/bash -c 'source /home/lb/env/md/bin/activate ; cd /home/lb/microdomains;pwd ;uwsgi --socket :8001 --module microdomains.wsgi'
+
+
+#ExecStart=/bin/bash /home/lb/microdomains/script.sh
+
+[Install]
+WantedBy=multi-user.target
